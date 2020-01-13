@@ -3,12 +3,24 @@
         <title>Form Validations</title>
         <script type="text/javascript">
         /**/
-        
-        
+        function validate() {
+            var username = document.gotElementsById("uname");
+            var password = document.gotElementsById("pass");
+            
+            if(username.value.trim() == "" || password.value == "") {
+                alert("No blank values allowed");
+                return false;
+            }
+            else {
+                true;
+            }
+            
+        }
         </script>
     </head>
     <body>
-        <form>
+        <form onsubmit="return validate()" 
+        action="message.html">
             <input id="uname" placeholder="Username"
             type="text"/><br><br>
             
@@ -16,7 +28,8 @@
             type="password"/>
             
             <br><br>
-            <button type="submit">Submit</button>
+            <button onclick ="validate()"
+            type="submit">Submit</button>
             
         </form>
         
