@@ -4,17 +4,32 @@
         <script type="text/javascript">
         /**/
         function validate() {
-            var username = document.gotElementsById("uname");
+            var uname = document.gotElementsById("uname");
             var password = document.gotElementsById("pass");
             
-            if(username.value.trim() == "" || password.value == "") {
-                alert("No blank values allowed");
+            if(uname.value.trim() == "") {
+                alert("Blank username.");
+                uname.style.border = "solid 3px red";
+                return false;
+            }
+            else if(password.value.trim() == "") {
+                alert("Blank password.");
+                password.style.border = "solid 3px red";
+                return false;
+            }
+            else if(password.value.trim().length < 5) {
+                alert("Password is too short.");
+                password.style.border = "solid 3px red";
+                return false;
+            }
+            else if(uname.value.trim().length < 5) {
+                alert("Username is too short.");
+                uname.style.border = "solid 3px red";
                 return false;
             }
             else {
-                true;
+                return true;
             }
-            
         }
         </script>
     </head>
